@@ -13,8 +13,13 @@ const dirname =
     ? __dirname
     : path.dirname(fileURLToPath(import.meta.url))
 
+const basePath = process.env.BASE_PATH
+  ? `${process.env.BASE_PATH.replace(/\/$/, '')}/`
+  : '/'
+
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 const config = defineConfig({
+  base: basePath,
   resolve: {
     tsconfigPaths: true,
   },
@@ -25,7 +30,13 @@ const config = defineConfig({
         external: [/^@sentry\//],
       },
     }),
-    tanstackStart(),
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        crawlLinks: true,
+        failOnError: true,
+      },
+    }),
     viteReact(),
   ],
   test: {
