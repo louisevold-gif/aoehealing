@@ -45,6 +45,8 @@ jobs:
         run: npm run build
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          VITE_SANITY_PROJECT_ID: h3pht3vt
+          VITE_SANITY_DATASET: production
 
       - name: Add SPA fallback
         run: cp .output/public/index.html .output/public/404.html
