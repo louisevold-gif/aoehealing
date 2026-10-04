@@ -1,3 +1,26 @@
+:root {
+  /* CSS HEX */
+  --almond-cream: #ecd8c7ff;
+  --jet-black: #013445ff;
+  --pale-oak: #ddc5adff;
+  --olive-wood: #806f61ff;
+  --desert-sand: #e2c0a4ff;
+
+  /* CSS HSL */
+  --almond-cream: hsla(28, 49%, 85%, 1);
+  --jet-black: hsla(195, 97%, 14%, 1);
+  --pale-oak: hsla(30, 41%, 77%, 1);
+  --olive-wood: hsla(27, 14%, 44%, 1);
+  --desert-sand: hsla(27, 52%, 76%, 1);
+}
+
+:root {
+  --color-bg: var(--almond-cream);
+  --color-text: var(--jet-black);
+  --color-primary: var(--pale-oak);
+  --color-secondary: var(--olive-wood);
+  --color-accent: var(--desert-sand);
+}
 * {
   box-sizing: border-box;
 }
@@ -6,6 +29,8 @@ html,
 body,
 #app {
   min-height: 100%;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 body {
