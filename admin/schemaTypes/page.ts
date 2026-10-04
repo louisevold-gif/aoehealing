@@ -1,4 +1,5 @@
 import {defineField} from 'sanity'
+import {textArea} from './text-area'
 
 export default {
   name: 'page',
@@ -14,7 +15,7 @@ export default {
       name: 'content',
       title: 'Content',
       type: 'array',
-      of: [{type: 'textArea'}],
+      of: [{type: textArea.name}],
     }),
     defineField({
       name: 'slug',
