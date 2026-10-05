@@ -1,3 +1,5 @@
+@import '@fontsource-variable/montserrat';
+
 :root {
   /* CSS HEX */
   --almond-cream: #ecd8c7ff;
@@ -31,6 +33,7 @@ body,
   min-height: 100%;
   background-color: var(--color-bg);
   color: var(--color-text);
+  font-family: 'Montserrat Variable', sans-serif;
 }
 
 body {
