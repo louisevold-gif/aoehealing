@@ -19,11 +19,11 @@ function Page() {
   if (!data) return <p>Page not found</p>
 
   return (
-    <>
+    <main>
       <h1>{data.title.en_US}</h1>
       {data.content.map((content: any) => {
         return <PortableText value={content.en_US} key={content._key} />
       })}
-    </>
+    </main>
   )
 }
