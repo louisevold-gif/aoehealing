@@ -2,14 +2,14 @@
   all: unset;
   cursor: pointer;
   padding: 0.5rem 1rem;
-  background-color: #000;
-  color: #fff;
-  border-radius: 0.25rem;
-  border: 1px solid #000;
+  background-color: var(--color-button-primary-bg);
+  color: var(--color-button-primary-text);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-button-primary-bg);
   transition: all 0.3s ease;
   &:not([disabled]):hover {
-    background-color: #fff;
-    color: #000;
+    background-color: var(--color-button-ghost-bg);
+    color: var(--color-button-ghost-text);
   }
   &:disabled {
     opacity: 0.5;
