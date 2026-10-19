@@ -27,7 +27,7 @@ function RouteComponent() {
     justifyItems: 'center',
   }
   return (
-    <section style={sectionStyle as React.CSSProperties}>
+    <main style={sectionStyle as React.CSSProperties}>
       <h1>Examples</h1>
       <div style={functionStyle as React.CSSProperties}>
         <Button>Example button</Button>
@@ -48,6 +48,6 @@ function RouteComponent() {
           Button button disabled
         </Button>
       </div>
-    </section>
+    </main>
   )
 }

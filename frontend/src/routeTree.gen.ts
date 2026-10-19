@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SlugRouteImport } from './routes/$slug'
+import { Route as BookingIndexRouteImport } from './routes/booking/index'
 import { Route as ExamplesIndexRouteImport } from './routes/examples/index'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const SlugRoute = SlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BookingIndexRoute = BookingIndexRouteImport.update({
+  id: '/booking/',
+  path: '/booking/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ExamplesIndexRoute = ExamplesIndexRouteImport.update({
   id: '/examples/',
   path: '/examples/',
@@ -32,30 +38,34 @@ const ExamplesIndexRoute = ExamplesIndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$slug': typeof SlugRoute
+  '/booking/': typeof BookingIndexRoute
   '/examples/': typeof ExamplesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$slug': typeof SlugRoute
+  '/booking': typeof BookingIndexRoute
   '/examples': typeof ExamplesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$slug': typeof SlugRoute
+  '/booking/': typeof BookingIndexRoute
   '/examples/': typeof ExamplesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$slug' | '/examples/'
+  fullPaths: '/' | '/$slug' | '/booking/' | '/examples/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$slug' | '/examples'
-  id: '__root__' | '/' | '/$slug' | '/examples/'
+  to: '/' | '/$slug' | '/booking' | '/examples'
+  id: '__root__' | '/' | '/$slug' | '/booking/' | '/examples/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SlugRoute: typeof SlugRoute
+  BookingIndexRoute: typeof BookingIndexRoute
   ExamplesIndexRoute: typeof ExamplesIndexRoute
 }
 
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/booking/': {
+      id: '/booking/'
+      path: '/booking'
+      fullPath: '/booking/'
+      preLoaderRoute: typeof BookingIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/examples/': {
       id: '/examples/'
       path: '/examples'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SlugRoute: SlugRoute,
+  BookingIndexRoute: BookingIndexRoute,
   ExamplesIndexRoute: ExamplesIndexRoute,
 }
 export const routeTree = rootRouteImport
