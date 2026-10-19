@@ -175,6 +175,12 @@
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-full: 9999px;
+
+  /* Animation */
+  --animation-duration-short: 0.2s;
+  --animation-duration-medium: 0.3s;
+  --animation-duration-long: 0.4s;
+  --animation-bezier-curve: cubic-bezier(0.6, -0.03, 0.4, 1.01);
 }
 
 @media (prefers-color-scheme: dark) {
