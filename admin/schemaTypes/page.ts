@@ -27,5 +27,18 @@ export default {
       },
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'includeInMenu',
+      title: 'Include in menu',
+      type: 'boolean',
+      initialValue: true,
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'menuOrder',
+      title: 'Menu order',
+      type: 'number',
+      validation: (Rule) => Rule.required(),
+    }),
   ],
 }
