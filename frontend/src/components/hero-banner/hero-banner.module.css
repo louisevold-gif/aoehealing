@@ -1,0 +1,14 @@
+.heroBanner {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  padding: var(--spacing-xl) var(--spacing-xxl);
+}
+
+.title {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.description {
+  padding: var(--spacing-xl) var(--spacing-xxl);
+}

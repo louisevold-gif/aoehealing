@@ -15,6 +15,50 @@
 export declare const internalGroqTypeReferenceTo: unique symbol
 
 // Source: schema.json
+export type FeaturedTextSection = {
+  _type: 'featuredTextSection'
+  title_en_US?: string
+  title_no_NB?: string
+  text: TextArea
+}
+
+export type SocialMediaSection = {
+  _type: 'socialMediaSection'
+  instagram?: string
+  youtube?: string
+  tiktok?: string
+  threads?: string
+  facebook?: string
+  bluesky?: string
+  linkedin?: string
+}
+
+export type SanityImageAssetReference = {
+  _ref: string
+  _type: 'reference'
+  _weak?: boolean
+  [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+}
+
+export type HeroBanner = {
+  _type: 'heroBanner'
+  title_en_US: string
+  title_no_NB?: string
+  description: TextArea
+  image: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  mediaCredit?: string
+  button_text_en_US?: string
+  button_text_no_NB?: string
+  button_link?: string
+  buttonType: 'link' | 'booking'
+}
+
 export type Title = {
   _type: 'title'
   no_NB?: string
@@ -100,7 +144,25 @@ export type HomePage = {
   _createdAt: string
   _updatedAt: string
   _rev: string
-  title?: string
+  heroBanner?: HeroBanner
+  socialMediaSection?: SocialMediaSection
+  featuredTextSection?: FeaturedTextSection
+}
+
+export type SanityImageCrop = {
+  _type: 'sanity.imageCrop'
+  top: number
+  bottom: number
+  left: number
+  right: number
+}
+
+export type SanityImageHotspot = {
+  _type: 'sanity.imageHotspot'
+  x: number
+  y: number
+  height: number
+  width: number
 }
 
 export type SanityImagePaletteSwatch = {
@@ -139,22 +201,6 @@ export type SanityImageMetadata = {
   thumbHash?: string
   hasAlpha?: boolean
   isOpaque?: boolean
-}
-
-export type SanityImageHotspot = {
-  _type: 'sanity.imageHotspot'
-  x: number
-  y: number
-  height: number
-  width: number
-}
-
-export type SanityImageCrop = {
-  _type: 'sanity.imageCrop'
-  top: number
-  bottom: number
-  left: number
-  right: number
 }
 
 export type SanityFileAsset = {
@@ -217,18 +263,22 @@ export type Geopoint = {
 }
 
 export type AllSanitySchemaTypes =
+  | FeaturedTextSection
+  | SocialMediaSection
+  | SanityImageAssetReference
+  | HeroBanner
   | Title
   | TextArea
   | Settings
   | Page
   | Slug
   | HomePage
+  | SanityImageCrop
+  | SanityImageHotspot
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
   | SanityImageMetadata
-  | SanityImageHotspot
-  | SanityImageCrop
   | SanityFileAsset
   | SanityAssetSourceData
   | SanityImageAsset
@@ -243,7 +293,9 @@ export type HomePageQueryResult = {
   _createdAt: string
   _updatedAt: string
   _rev: string
-  title?: string
+  heroBanner?: HeroBanner
+  socialMediaSection?: SocialMediaSection
+  featuredTextSection?: FeaturedTextSection
 } | null
 
 // Source: ../frontend/src/queries/page.ts
