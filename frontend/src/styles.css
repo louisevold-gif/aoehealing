@@ -145,10 +145,18 @@
   --scale: minorThird;
   --font-size-base: 1rem;
   --font-size-small: 0.833rem;
-  --font-size-large: 1.2rem;
-  --font-size-h1: 2.074rem;
-  --font-size-h2: 1.728rem;
-  --font-size-h3: 1.44rem;
+  --font-size-5xl: 2.986rem;
+  --font-size-4xl: 2.488rem;
+  --font-size-3xl: 2.074rem;
+  --font-size-2xl: 1.728rem;
+  --font-size-xl: 1.44rem;
+  --font-size-lg: 1.2rem;
+  --font-size-h1: var(--font-size-5xl);
+  --font-size-h2: var(--font-size-4xl);
+  --font-size-h3: var(--font-size-3xl);
+  --font-size-h4: var(--font-size-2xl);
+  --font-size-h5: var(--font-size-xl);
+  --font-size-h6: var(--font-size-lg);
   --font-weight-light: 300;
   --font-weight-base: 400;
   --font-weight-medium: 500;
@@ -168,10 +176,16 @@
   --spacing-xxl: 3rem;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px rgb(0 0 0 / 0.1);
+
+  /* Shadows dark */
+  --shadow-sm-dark: 0 1px 2px rgb(0 0 0 / 0.6);
+  --shadow-md-dark: 0 4px 6px rgb(0 0 0 / 0.7);
+  --shadow-lg-dark: 0 10px 15px rgb(0 0 0 / 0.7);
+  --shadow-xl-dark: 0 20px 25px rgb(0 0 0 / 0.7);
 
   /* Border Radius */
   --radius-none: 0;
@@ -298,6 +312,10 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 html,
 body,
 #app {
@@ -307,29 +325,31 @@ body,
   font-family: 'Montserrat Variable', sans-serif;
   font-size: 16px;
   font-weight: var(--font-weight-base);
+}
 
+:where(html, body, #app) {
   h1 {
-    font-size: 2.986rem;
+    font-size: var(--font-size-h1);
     font-weight: var(--font-weight-bold);
   }
   h2 {
-    font-size: 2.488rem;
+    font-size: var(--font-size-h2);
     font-weight: var(--font-weight-bold);
   }
   h3 {
-    font-size: 2.074rem;
+    font-size: var(--font-size-h3);
     font-weight: var(--font-weight-bold);
   }
   h4 {
-    font-size: 1.728rem;
+    font-size: var(--font-size-large);
     font-weight: var(--font-weight-medium);
   }
   h5 {
-    font-size: 1.44rem;
+    font-size: var(--font-size-large);
     font-weight: var(--font-weight-medium);
   }
   h6 {
-    font-size: 1.2rem;
+    font-size: var(--font-size-large);
     font-weight: var(--font-weight-medium);
   }
 }

@@ -113,6 +113,32 @@ export type Settings = {
   _rev: string
   savvyCalLink: string
   savvyCalButtonText: string
+  title?: string
+  description?: string
+  image?: {
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  siteUrl?: string
+}
+
+export type SanityImageCrop = {
+  _type: 'sanity.imageCrop'
+  top: number
+  bottom: number
+  left: number
+  right: number
+}
+
+export type SanityImageHotspot = {
+  _type: 'sanity.imageHotspot'
+  x: number
+  y: number
+  height: number
+  width: number
 }
 
 export type Page = {
@@ -147,22 +173,6 @@ export type HomePage = {
   heroBanner?: HeroBanner
   socialMediaSection?: SocialMediaSection
   featuredTextSection?: FeaturedTextSection
-}
-
-export type SanityImageCrop = {
-  _type: 'sanity.imageCrop'
-  top: number
-  bottom: number
-  left: number
-  right: number
-}
-
-export type SanityImageHotspot = {
-  _type: 'sanity.imageHotspot'
-  x: number
-  y: number
-  height: number
-  width: number
 }
 
 export type SanityImagePaletteSwatch = {
@@ -270,11 +280,11 @@ export type AllSanitySchemaTypes =
   | Title
   | TextArea
   | Settings
+  | SanityImageCrop
+  | SanityImageHotspot
   | Page
   | Slug
   | HomePage
-  | SanityImageCrop
-  | SanityImageHotspot
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
@@ -320,13 +330,17 @@ export type PageQueryResult = {
 
 // Source: ../frontend/src/queries/settings.ts
 // Variable: settingsQuery
-// Query: *[_id == "settings"][0]{ savvyCalLink }
+// Query: *[_id == "settings"][0]{ savvyCalLink, savvyCalButtonText, seo{ title, description, siteUrl, image} }
 export type SettingsQueryResult =
   | {
       savvyCalLink: null
+      savvyCalButtonText: null
+      seo: null
     }
   | {
       savvyCalLink: string
+      savvyCalButtonText: string
+      seo: null
     }
   | null
 
@@ -335,7 +349,7 @@ declare global {
   interface SanityQueries {
     '*[_type == "homePage"][0]': HomePageQueryResult
     '*[_type == "page" && slug.current == $slug][0]': PageQueryResult
-    '*[_id == "settings"][0]{ savvyCalLink }': SettingsQueryResult
+    '*[_id == "settings"][0]{ savvyCalLink, savvyCalButtonText, seo{ title, description, siteUrl, image} }': SettingsQueryResult
   }
 }
 // Lets @sanity/client releases that predate the global registry read it too

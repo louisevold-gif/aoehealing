@@ -1,14 +1,35 @@
-.heroBanner {
-  background-color: var(--color-surface);
+section.heroBanner {
   color: var(--color-text);
-  padding: var(--spacing-xl) var(--spacing-xxl);
-}
+  padding: calc(var(--spacing-xxl) * 5) 0;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-.title {
-  font-size: 4rem;
-  text-align: center;
-}
+  .content {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: var(--spacing-sm);
+    padding: 0 var(--spacing-lg);
+    h1.title {
+      text-shadow: var(--shadow-sm-dark);
+      font-size: var(--font-size-xl);
+      line-height: var(--line-height-heading);
+      margin: 0;
+      font-weight: var(--font-weight-light);
+    }
 
-.description {
-  padding: var(--spacing-xl) var(--spacing-xxl);
+    .description {
+      font-size: var(--font-size-2xl);
+      p {
+        margin: 0;
+        font-weight: var(--font-weight-bold);
+      }
+    }
+  }
 }

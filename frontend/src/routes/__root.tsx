@@ -69,7 +69,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body>
         <Header />
         {children}
-        <SavvyCalFloatingAction link={data?.savvyCalLink}>
+        <SavvyCalFloatingAction link={data?.savvyCalLink ?? undefined}>
           {data?.savvyCalButtonText ?? 'Schedule time'}
         </SavvyCalFloatingAction>
         <TanStackDevtools
