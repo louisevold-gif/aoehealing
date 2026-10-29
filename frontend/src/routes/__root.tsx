@@ -87,8 +87,8 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         { rel: 'stylesheet', href: appCss },
         {
           rel: 'icon',
-          href: `${import.meta.env.BASE_URL}logo.svg`,
-          type: 'image/svg+xml',
+          href: `${import.meta.env.BASE_URL}favicon.ico`,
+          type: 'image/x-icon',
         },
       ],
     }
