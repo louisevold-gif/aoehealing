@@ -4,6 +4,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import type { HomePageQueryResult } from '../../sanity.types'
 import HeroBanner from '#/components/hero-banner/hero-banner'
 import SocialMediaSection from '#/components/social-media-section/social-media-section'
+import FeaturedTextSection from '#/components/featured-text-section/featured-text-section'
 
 export const Route = createFileRoute('/')({ component: Home })
 
@@ -18,6 +19,9 @@ function Home() {
       {data.heroBanner && <HeroBanner data={data.heroBanner} />}
       {data.socialMediaSection && (
         <SocialMediaSection data={data.socialMediaSection} />
+      )}
+      {data.featuredTextSection && (
+        <FeaturedTextSection data={data.featuredTextSection} />
       )}
     </main>
   )

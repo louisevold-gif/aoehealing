@@ -48,7 +48,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
     const pathname = matches.at(-1)?.pathname || '/'
     const origin = textValue(loaderData?.siteUrl) ?? (await getRequestOrigin())
     const pageUrl = new URL(pathname, origin).toString()
-    const imageUrl = socialImageUrl(loaderData)
+    const imageUrl = socialImageUrl(loaderData ?? ({} as SettingsQueryResult))
 
     const meta: Array<
       | { charSet: 'utf-8' }
