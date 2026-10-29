@@ -56,13 +56,13 @@
   --color-accent-active: var(--color-primary-200);
 
   /* Semantic Colors - Backgrounds & Surfaces */
-  --color-background: var(--color-neutral-50);
-  --color-background-alt: var(--color-neutral-100);
-  --color-surface: var(--color-neutral-100);
-  --color-surface-hover: var(--color-neutral-100);
-  --color-surface-active: var(--color-neutral-200);
+  --color-background: var(--color-neutral-100);
+  --color-background-alt: var(--color-neutral-200);
+  --color-surface: var(--color-neutral-200);
+  --color-surface-hover: var(--color-neutral-300);
+  --color-surface-active: var(--color-neutral-300);
   --color-surface-elevated: #ffffff;
-  --color-surface-overlay: var(--color-neutral-100);
+  --color-surface-overlay: var(--color-neutral-200);
   --color-backdrop: rgba(0, 0, 0, 0.5);
 
   /* Semantic Colors - Text */
