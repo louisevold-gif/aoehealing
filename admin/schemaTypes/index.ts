@@ -1,4 +1,5 @@
 import homePage from './home-page'
+import {featuredTextSection} from './home-page/featured-text-section'
 import {heroBanner} from './home-page/hero-banner'
 import {socialMediaSection} from './home-page/social-media-section'
 import page from './page'
@@ -14,4 +15,5 @@ export const schemaTypes = [
   title,
   heroBanner,
   socialMediaSection,
+  featuredTextSection,
 ]

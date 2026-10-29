@@ -18,6 +18,19 @@ export default {
       name: 'socialMediaSection',
       title: 'Social Media Section',
       type: 'socialMediaSection',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    }),
+    defineField({
+      name: 'featuredTextSection',
+      title: 'Featured Text Section',
+      type: 'featuredTextSection',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
     }),
   ],
   preview: {

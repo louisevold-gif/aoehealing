@@ -14,5 +14,6 @@ export function pageQueryOptions(slug: string) {
   return queryOptions({
     queryKey: ['page', slug],
     queryFn: () => getPageBySlug(slug),
+    staleTime: 1000 * 60 * 60 * 24, // 24 hours
   })
 }
