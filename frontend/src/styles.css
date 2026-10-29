@@ -219,9 +219,9 @@
     /* Dark Mode - Backgrounds & Surfaces */
     --color-background: var(--color-neutral-950);
     --color-background-alt: var(--color-neutral-900);
-    --color-surface: var(--color-neutral-900);
-    --color-surface-hover: var(--color-neutral-800);
-    --color-surface-active: var(--color-neutral-700);
+    --color-surface: var(--color-neutral-800);
+    --color-surface-hover: var(--color-neutral-700);
+    --color-surface-active: var(--color-neutral-600);
     --color-surface-elevated: var(--color-neutral-800);
     --color-surface-overlay: var(--color-neutral-800);
     --color-backdrop: rgba(0, 0, 0, 0.8);
