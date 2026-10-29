@@ -233,3 +233,47 @@ export type AllSanitySchemaTypes =
   | SanityAssetSourceData
   | SanityImageAsset
   | Geopoint
+
+// Source: ../frontend/src/queries/page.ts
+// Variable: pageQuery
+// Query: *[_type == "page" && slug.current == $slug][0]
+export type PageQueryResult = {
+  _id: string
+  _type: 'page'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title?: Title
+  content?: Array<
+    {
+      _key: string
+    } & TextArea
+  >
+  slug: Slug
+  includeInMenu: boolean
+  menuOrder: number
+} | null
+
+// Source: ../frontend/src/queries/settings.ts
+// Variable: settingsQuery
+// Query: *[_id == "settings"][0]{ savvyCalLink }
+export type SettingsQueryResult =
+  | {
+      savvyCalLink: null
+    }
+  | {
+      savvyCalLink: string
+    }
+  | null
+
+// Query TypeMap
+declare global {
+  interface SanityQueries {
+    '*[_type == "page" && slug.current == $slug][0]': PageQueryResult
+    '*[_id == "settings"][0]{ savvyCalLink }': SettingsQueryResult
+  }
+}
+// Lets @sanity/client releases that predate the global registry read it too
+declare module '@sanity/client' {
+  interface SanityQueries extends globalThis.SanityQueries {}
+}
