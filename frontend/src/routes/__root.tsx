@@ -12,6 +12,7 @@ import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 import appCss from '../styles.css?url'
 
 import { useSuspenseQuery, type QueryClient } from '@tanstack/react-query'
+import Footer from '#/components/footer/footer'
 import Header from '#/components/header/header'
 import { SavvyCalFloatingAction } from '#/integrations/savvycal/savvycal'
 import { settingsQueryOptions } from '#/queries/settings'
@@ -120,6 +121,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body>
         <Header />
         {children}
+        <Footer />
         <SavvyCalFloatingAction link={data?.savvyCalLink ?? undefined}>
           {data?.savvyCalButtonText ?? 'Schedule time'}
         </SavvyCalFloatingAction>
