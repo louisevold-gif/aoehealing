@@ -234,6 +234,18 @@ export type AllSanitySchemaTypes =
   | SanityImageAsset
   | Geopoint
 
+// Source: ../frontend/src/queries/home-page.ts
+// Variable: homePageQuery
+// Query: *[_type == "homePage"][0]
+export type HomePageQueryResult = {
+  _id: string
+  _type: 'homePage'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title?: string
+} | null
+
 // Source: ../frontend/src/queries/page.ts
 // Variable: pageQuery
 // Query: *[_type == "page" && slug.current == $slug][0]
@@ -269,6 +281,7 @@ export type SettingsQueryResult =
 // Query TypeMap
 declare global {
   interface SanityQueries {
+    '*[_type == "homePage"][0]': HomePageQueryResult
     '*[_type == "page" && slug.current == $slug][0]': PageQueryResult
     '*[_id == "settings"][0]{ savvyCalLink }': SettingsQueryResult
   }
