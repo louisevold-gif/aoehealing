@@ -73,6 +73,7 @@
   --color-text-inverse: var(--color-neutral-50);
   --color-text-on-primary: var(--color-neutral-50);
   --color-text-on-secondary: var(--color-neutral-50);
+  --color-text-on-dark: var(--color-neutral-50);
 
   /* Semantic Colors - Borders */
   --color-border: var(--color-neutral-200);

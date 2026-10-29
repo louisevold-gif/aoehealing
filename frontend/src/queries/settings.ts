@@ -3,7 +3,7 @@ import { queryOptions } from '@tanstack/react-query'
 import { defineQuery } from 'groq'
 
 const settingsQuery = defineQuery(
-  '*[_id == "settings"][0]{ savvyCalLink, savvyCalButtonText, seo{ title, description, siteUrl, image} }',
+  '*[_id == "settings"][0]{ savvyCalLink, savvyCalButtonText, title, description, siteUrl, image }',
 )
 
 export function getSettings() {

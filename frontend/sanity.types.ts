@@ -330,17 +330,45 @@ export type PageQueryResult = {
 
 // Source: ../frontend/src/queries/settings.ts
 // Variable: settingsQuery
-// Query: *[_id == "settings"][0]{ savvyCalLink, savvyCalButtonText, seo{ title, description, siteUrl, image} }
+// Query: *[_id == "settings"][0]{ savvyCalLink, savvyCalButtonText, title, description, siteUrl, image }
 export type SettingsQueryResult =
   | {
       savvyCalLink: null
       savvyCalButtonText: null
-      seo: null
+      title: null
+      description: null
+      siteUrl: null
+      image: null
+    }
+  | {
+      savvyCalLink: null
+      savvyCalButtonText: null
+      title: Title | null
+      description: null
+      siteUrl: null
+      image: null
+    }
+  | {
+      savvyCalLink: null
+      savvyCalButtonText: null
+      title: string | null
+      description: string | null
+      siteUrl: null
+      image: null
     }
   | {
       savvyCalLink: string
       savvyCalButtonText: string
-      seo: null
+      title: string | null
+      description: string | null
+      siteUrl: string | null
+      image: {
+        asset?: SanityImageAssetReference
+        media?: unknown
+        hotspot?: SanityImageHotspot
+        crop?: SanityImageCrop
+        _type: 'image'
+      } | null
     }
   | null
 
@@ -349,7 +377,7 @@ declare global {
   interface SanityQueries {
     '*[_type == "homePage"][0]': HomePageQueryResult
     '*[_type == "page" && slug.current == $slug][0]': PageQueryResult
-    '*[_id == "settings"][0]{ savvyCalLink, savvyCalButtonText, seo{ title, description, siteUrl, image} }': SettingsQueryResult
+    '*[_id == "settings"][0]{ savvyCalLink, savvyCalButtonText, title, description, siteUrl, image }': SettingsQueryResult
   }
 }
 // Lets @sanity/client releases that predate the global registry read it too

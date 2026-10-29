@@ -1,8 +1,5 @@
 import { PortableText } from '@portabletext/react'
-import type {
-  HomePageQueryResult,
-  SettingsQueryResult,
-} from '../../../sanity.types'
+import type { HomePageQueryResult } from '../../../sanity.types'
 import { urlFor } from '#/utils/image'
 import styles from './hero-banner.module.css'
 import Button from '../button/button'
@@ -11,15 +8,13 @@ import { settingsQueryOptions } from '#/queries/settings'
 import { SavvyCalButton } from '#/integrations/savvycal/savvycal'
 
 type HomePageData = NonNullable<HomePageQueryResult>
-type SettingsData = NonNullable<SettingsQueryResult>
-
-const settings = useQuery(settingsQueryOptions()) as { data: SettingsData }
 
 export default function HeroBanner({
   data,
 }: {
   data: NonNullable<HomePageData['heroBanner']>
 }) {
+  const { data: settings } = useQuery(settingsQueryOptions())
   const imageUrl = data.image.asset
     ? urlFor(data.image).width(1600).auto('format').url()
     : null
@@ -42,7 +37,7 @@ export default function HeroBanner({
             })}
           </div>
           {data.buttonType === 'booking' && data.button_text_en_US && (
-            <SavvyCalButton link={settings.data.savvyCalLink ?? undefined}>
+            <SavvyCalButton link={settings?.savvyCalLink ?? undefined}>
               {data.button_text_en_US}
             </SavvyCalButton>
           )}

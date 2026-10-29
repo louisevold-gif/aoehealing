@@ -1,5 +1,5 @@
 section.heroBanner {
-  color: var(--color-text);
+  color: var(--color-text-on-dark);
   padding: calc(var(--spacing-xxl) * 5) 0;
   width: 100vw;
   margin-inline: calc(50% - 50vw);
