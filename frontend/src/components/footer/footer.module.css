@@ -17,6 +17,7 @@
     gap: var(--spacing-xl);
     margin: auto;
     width: fit-content;
+    flex-wrap: wrap;
     .businessInfo {
       display: flex;
       flex-direction: column;
