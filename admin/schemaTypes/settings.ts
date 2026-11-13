@@ -7,6 +7,7 @@ export default defineType({
   groups: [
     {name: 'savvyCal', title: 'SavvyCal'},
     {name: 'seo', title: 'SEO'},
+    {name: 'footer', title: 'Footer'},
   ],
   fields: [
     defineField({
@@ -52,6 +53,27 @@ export default defineType({
       type: 'url',
       description: 'The URL of the site, for example https://www.aoehealing.com',
       group: 'seo',
+    }),
+    defineField({
+      name: 'businessName',
+      title: 'Forretningsnavn',
+      type: 'string',
+      description: 'Offisielt navn på virksomheten.',
+      group: 'footer',
+    }),
+    defineField({
+      name: 'orgNumber',
+      title: 'Organisasjonsnummer',
+      type: 'string',
+      description: 'Organisasjonsnummer på virksomheten.',
+      group: 'footer',
+    }),
+    defineField({
+      name: 'contactEmail',
+      title: 'Kontakt e-post',
+      type: 'email',
+      description: 'Primær e-post for kontakt.',
+      group: 'footer',
     }),
   ],
 })

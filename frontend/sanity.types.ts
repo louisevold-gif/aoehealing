@@ -123,6 +123,9 @@ export type Settings = {
     _type: 'image'
   }
   siteUrl?: string
+  businessName?: string
+  orgNumber?: string
+  contactEmail?: string
 }
 
 export type SanityImageCrop = {
