@@ -29,8 +29,8 @@ export default function Footer({
     <footer className={styles.footer}>
       <section className={styles.contentSection}>
         <div className={styles.businessInfo}>
-          {businessName && <span>{businessName}</span>}
-          {orgNumber && <span>{orgNumber}</span>}
+          {businessName && <span>Forretningsnavn: {businessName}</span>}
+          {orgNumber && <span>Organisasjonsnummer: {orgNumber}</span>}
         </div>
         <div className={styles.contactEmail}>
           {contactEmail && (
