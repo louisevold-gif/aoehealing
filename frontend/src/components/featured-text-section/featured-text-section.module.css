@@ -24,3 +24,11 @@
     font-weight: var(--font-weight-bold);
   }
 }
+@media (max-width: 768px) {
+  .featuredTextSection {
+    padding: calc(var(--spacing-xl) * 4) 0;
+    .text {
+      text-align: left;
+    }
+  }
+}
