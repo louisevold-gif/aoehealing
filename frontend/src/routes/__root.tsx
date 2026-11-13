@@ -121,7 +121,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body>
         <Header />
         {children}
-        <Footer />
+        <Footer
+          orgNumber={data?.orgNumber}
+          businessName={data?.businessName}
+          contactEmail={data?.contactEmail}
+        />
         <SavvyCalFloatingAction link={data?.savvyCalLink ?? undefined}>
           {data?.savvyCalButtonText ?? 'Schedule time'}
         </SavvyCalFloatingAction>
